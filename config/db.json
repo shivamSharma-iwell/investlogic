@@ -1,0 +1,33 @@
+{
+  "mysql": {
+      "replication": {
+        "read": [{ "host": "127.0.0.1","username": "peeyush", "password": "peeyush" }],
+        "write": { "host": "127.0.0.1","username": "peeyush", "password": "peeyush" }
+      },
+      "database": "iwell2_new",
+      "dialect": "mysql",
+      "logging": true,
+      "timezone": "+05:30",
+      "define": {
+        "timestamps": false,
+        "freezeTableName": true
+      },
+      "pool": {
+        "idle": 3600000,
+        "min": 1,
+        "max": 100
+      },
+      "retry": {
+        "match": [
+          "Deadlock found when trying to get lock; try restarting transaction",
+          "Operation timeout",
+          "connect ETIMEDOUT"
+        ],
+        "max": 10
+      },
+      "dialectOptions": {
+        "multipleStatements": true,
+        "decimalNumbers": true
+      }
+    }
+}
